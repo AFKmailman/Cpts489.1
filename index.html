@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--the header was abasically copy pasted into here-->
+    <base target="_top">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/page.css">
+</head>
+
+<body>
+    <!--start of fixed top nav bar-->
+    <div id="navBar" class="navbar">
+        <span class="navbarItems">
+            <button id="menuBtn" style="background: transparent; border-color: violet; text-align: center;">
+                <span id="menuBtnIcon" class='fas fa-ellipsis-v' style='color:white; 
+                    font-size:30px; cursor:pointer; text-align: center; padding-left: 5px; padding-right: 5px;'>
+                </span>
+            </button>
+            <span id="topBarTitle" style="color: wheat; font-size: 18px; text-align: center;">&nbsp;&nbsp;&nbsp;Welcome to my TED
+                    talk&nbsp;&nbsp;&nbsp;</span>
+            <img src="https://terriblyterrier.com/wp-content/uploads/2013/04/bulldog-sleepy.jpg" alt="main logo"
+                height="38px" width="38px" />
+            
+        </span>
+    </div>
+    <!--end of fixed top nav bar-->
+
+    <!--start of side bar-->
+    <div id="sideMenu" class="sidenav">
+        <div class="sidenavtitle">
+            <img src="https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/7/2/3/4/634327-1-eng-GB/Middle-Eastern-wars-hit-Moldovan-lamb-export-sales_wrbm_large.jpg"
+                height="40px" width="40px">
+            <span id="userID" style="font-size: 14px; display: block;">Camden Lambe</span>
+        </div>
+        <div id="mainMenuContent">
+            <a></a>
+            <a id='aboutMe' class="aboutMeMenuItem menuItem"><span class="fas fa-angle-right">&nbsp;About Me&nbsp;</span></a>
+            <a id="family" class="familyMenuItem menuItem"><span class="fas fa-angle-right">&nbsp;Family&nbsp;</span></a>
+            <a id="hobbies" class="hobbiesMenuItem menuItem"><span class="fas fa-angle-right">&nbsp;Hobbies&nbsp;</span></a>
+        </div>
+    </div>
+    <!--end of side bar-->
+
+    <!--start of fixed bottom bar-->
+    <div id="bottomBar" class="bottombar" style="z-index: 151;">
+        <a id="general" class="bottomBarBtn"><span style="display: block; scroll-padding-top: 3px;"
+                class="nonMenuItem fab fa-grunt"></span><span
+                style="display: block; font-size: small;">general</span></a>
+        <a id="education" class="bottomBarBtn"><span style="display: block; scroll-padding-top: 3px;"
+                class="nonMenuItem fab fa-grunt"></span><span
+                style="display: block; font-size: small;">education</span></a>
+        <a id="livedIn" class="bottomBarBtn"><span style="display: block; scroll-padding-top: 3px;"
+                class="nonMenuItem fab fa-grunt"></span><span
+                style="display: block; font-size: small;">livedIn</span></a>
+    </div>
+    <!-- end of fixed bottom bar-->
+
+    <!--other pages-->
+    <div id="homeDiv" class="padded">
+        <h1 style="align-content: center;">Home Page</h1>
+        <div w3-include-html="html/startPage.html"> </div>
+    </div>
+
+    <div id="aboutMeDiv" class="padded hideOnStartUp">
+        <h1 style="align-content: center;">About Me Page</h1>
+        <div w3-include-html="html/aboutMe.html"> </div>
+    </div>
+
+    <div id="familyDiv" class="padded hideOnStartUp">
+        <h1 style="align-content: center;">Family Page</h1>
+        <div w3-include-html="html/family.html"> </div>
+    </div>
+
+    <div id="hobbiesDiv" class="padded hideOnStartUp">
+        <h1 style="align-content: center;">Hobbies Page</h1>
+        <div w3-include-html="html/hobbies.html"> </div>
+    </div>
+
+    <!--scripts below-->
+    <script src="scripts/includeHtml.js"></script>
+    <script src="scripts/eventHandler.js"></script>
+    <script src="scripts/startUp.js"></script>
+
+</body>
+
+</html>
