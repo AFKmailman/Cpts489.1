@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<body>
+    <div class="padded">
+        <button style=" position: fixed; top: 60px; left: 10px; padding: 5px;padding-left: 20px;padding-right: 20px;"
+            onclick="goBack()">&lt;--</button>
+        <div style="margin-left: auto; margin-right: auto;">Title <input id="titleInput"
+                style="margin-left: auto; margin-right: auto;" type="text" placeholder="Title"></div>
+        <div style="margin-left: auto; margin-right: auto;">Production Company <input id="productionCompanyInput"
+                style="margin-left: auto; margin-right: auto;" type="text" placeholder="Production Company"></div>
+        <div style="margin-left: auto; margin-right: auto;">Length <input id="lengthInput" type="number"
+                style="margin-left: auto; margin-right: auto;" placeholder="Length" min="0" max="300"></div>
+        <div style="margin-left: auto; margin-right: auto;">Genre <input id="genreInput" type="text" placeholder="Genre"
+                style="margin-left: auto; margin-right: auto;"></div>
+        <div style="margin-left: auto; margin-right: auto;">Budget <input id="budgetInput" type="number"
+                placeholder="Budget" min="0" style="margin-left: auto; margin-right: auto;"></div>
+        <div style="margin-left: auto; margin-right: auto;">Release Date <input id="releaseDateInput" type="text"
+                placeholder="Release Date" style="margin-left: auto; margin-right: auto;"></div>
+        <button id="submitAddRecordData" class="btn" onclick="saveAddRecordData()">Submit</button>
+    </div>
+</body>

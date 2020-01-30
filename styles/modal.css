@@ -1,0 +1,30 @@
+.modal {
+    display: block; /*block for testing. final product should be none*/
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(102, 34, 34);
+    background-color: rgba(102, 34, 34, 0.4);
+}
+
+.modal-content {
+    margin: 15% auto;
+    padding: 10px;
+    width: 60%;
+}
+
+.modal-close {
+    color: cadetblue;
+    float: right;
+    font-size: medium;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: coral;
+    cursor: pointer;
+}
