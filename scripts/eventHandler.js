@@ -133,7 +133,7 @@ function deleteRecord(arrayLocation) {
 
 function editViewRecordData() {
     console.log(this);
-    
+    movieData = JSON.parse(localStorage.getItem(curUser));
     let i = findRecord(targetID);
     let t = movieData.movieData[i];
     curID = t.id;
@@ -155,4 +155,6 @@ function saveEditViewRecordData(){
     t.budget = document.getElementById('budgetInput').value;
     t.releaseDate = document.getElementById('releaseDateInput').value;
     
+    localStorage.setItem(curUser, JSON.stringify(movieData));
+    goBack();
 }
