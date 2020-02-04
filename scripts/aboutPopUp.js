@@ -8,3 +8,7 @@ function closeModal() {
     document.getElementById('aboutModalDiv').style.display = 'none';
 }
 
+function closeDeleteModal() {
+    document.getElementById('deleteModalDiv').style.display = 'none';
+    tID = -1;
+}
