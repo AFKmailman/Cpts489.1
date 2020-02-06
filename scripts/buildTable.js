@@ -8,11 +8,15 @@ function deleteRecordHandler() {
 }
 
 function findRecord(targetID) {
+    console.log("targetid:" + targetID);
     //movieData = JSON.parse(localStorage.getItem(curUser));
     let size = movieData.movieData.length;
 
     for (let i = 0; i < size; i++) {
-        if (movieData.movieData[i].id == targetID) return i;
+        if (movieData.movieData[i].id == targetID) {
+            console.log("i:"+i);
+            return i;
+        }
     }
     return -1;
 }
@@ -28,10 +32,12 @@ function deleteRecord(arrayLocation) {
 }
 
 function editViewRecordData(a) {
+    console.log(a);
     //console.log(this);
     movieData = JSON.parse(localStorage.getItem(curUser));
-    let i = findRecord(a);
-    let t = movieData.movieData[i];
+    //let i = 
+    let t = movieData.movieData[findRecord(a)];
+    //console.log(t);
     curID = t.id;
     document.getElementById('titleInput').value = "" + t.title;
     document.getElementById('productionCompanyInput').value = "" + t.productionCompany;
@@ -40,13 +46,20 @@ function editViewRecordData(a) {
     document.getElementById('budgetInput').value = "" + t.budget;
     document.getElementById('releaseDateInput').value = "" + t.releaseDate;
     document.getElementById('submitAddRecordData').onclick = saveEditViewRecordData;
-    
+    // document.getElementById('titleInput').innerText = "" + t.title;
+    // document.getElementById('productionCompanyInput').innerText = "" + t.productionCompany;
+    // document.getElementById('lengthInput').innerText = "" + t.length;
+    // document.getElementById('genreInput').innerText = "" + t.genre;
+    // document.getElementById('budgetInput').innerText = "" + t.budget;
+    // document.getElementById('releaseDateInput').innerText = "" + t.releaseDate;
+    document.getElementById('submitAddRecordData').innerText = "Update Data";
     displayRecord();
 }
 
 function saveEditViewRecordData(){
     movieData = JSON.parse(localStorage.getItem(curUser));
-    let t = movieData.movieData[curID];
+    let t = movieData.movieData[findRecord(curID)];
+    console.log(t);
     t.title = document.getElementById('titleInput').value;
     t.productionCompany = document.getElementById('productionCompanyInput').value;
     t.length = document.getElementById('lengthInput').value;

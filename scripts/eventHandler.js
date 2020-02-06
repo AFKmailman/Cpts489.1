@@ -73,6 +73,7 @@ function goBack() {
     document.getElementById('budgetInput').innerText = "";
     document.getElementById('releaseDateInput').innerText = "";
     document.getElementById('submitAddRecordData').onclick = saveAddRecordData;
+    document.getElementById('submitAddRecordData').innerText = "Submit";
 }
 
 function underConstruction() {
@@ -95,7 +96,7 @@ function mode2() {
 
 function saveAddRecordData() {
     globalID = localStorage.getItem('globalID');
-    
+    globalID++;
     let data = {
         "id": "" + (globalID),
         "title": "" + document.getElementById('titleInput').value,
@@ -105,7 +106,7 @@ function saveAddRecordData() {
         "budget": "" + document.getElementById('budgetInput').value,
         "releaseDate": "" + document.getElementById('releaseDateInput').value
     }
-    globalID++;
+    
     //console.log(data);
     movieData['movieData'].push(data);
     localStorage.setItem(curUser, JSON.stringify(movieData));
