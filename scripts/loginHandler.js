@@ -20,8 +20,8 @@ function validateLogin() {
     setTimeout(() => {
         document.getElementById('loginFormButton').classList.remove("fas", 'fa-spinner', 'fa-spin');
 
-        validEmail = true;
-        validPassword = true;
+        // validEmail = true;
+        // validPassword = true;
 
         //alert if wrong
         if (validEmail && validPassword) {
@@ -53,7 +53,7 @@ function validateLogin() {
             //both are wrong
             alert("email is not valid and password is too weak");
         }
-    }, 1); //usually 2000
+    }, 2000); //usually 2000
 }
 
 function logout() {
