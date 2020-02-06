@@ -58,5 +58,4 @@ document.getElementById("bottomBar").style.display = "none";
 document.getElementById('menuBtn').disabled = true;
 
 
-
 //document.getElementById("menuBtn").disabled = true;

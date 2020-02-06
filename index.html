@@ -112,6 +112,20 @@
 
 
     <!--scripts below-->
+    <script>
+        var movieData = {
+            "movieData": []
+        }
+        var globalID = 0;
+        if (localStorage.getItem('globalID') === null) {
+            globalID = 0;
+            localStorage.setItem('globalID', globalID);
+        }
+        else{
+            globalID = localStorage.getItem('globalID');
+        }
+    </script>
+    <script src="scripts/buildTable.js"></script>
     <script src="scripts/aboutPopUp.js"></script>
     <script src="scripts/includeHtml.js"></script>
     <script src="scripts/eventHandler.js"></script>

@@ -60,6 +60,19 @@ function goBack() {
     document.getElementById('addRecordDiv').style.display = 'none';
     document.getElementById('bottomBar').style.display = 'block';
     document.getElementById('menuBtn').disabled = false;
+    document.getElementById('titleInput').value = "";
+    document.getElementById('productionCompanyInput').value = "";
+    document.getElementById('lengthInput').value = "";
+    document.getElementById('genreInput').value = "";
+    document.getElementById('budgetInput').value = "";
+    document.getElementById('releaseDateInput').value = "";
+    document.getElementById('titleInput').innerText = "";
+    document.getElementById('productionCompanyInput').innerText = "";
+    document.getElementById('lengthInput').innerText = "";
+    document.getElementById('genreInput').innerText = "";
+    document.getElementById('budgetInput').innerText = "";
+    document.getElementById('releaseDateInput').innerText = "";
+    document.getElementById('submitAddRecordData').onclick = saveAddRecordData;
 }
 
 function underConstruction() {
@@ -75,14 +88,16 @@ function mode2() {
     document.getElementById('mode').innerHTML = "<span class='fas fa-angle-right'>&nbsp;Under Construction&nbsp;</span>";
 }
 
-var movieData = {
-    "movieData": []
-}
-var globalID = localStorage.getItem('globalID');
+// var movieData = {
+//     "movieData": []
+// }
+
 
 function saveAddRecordData() {
+    globalID = localStorage.getItem('globalID');
+    
     let data = {
-        "id": "" + (globalID + 1),
+        "id": "" + (globalID),
         "title": "" + document.getElementById('titleInput').value,
         "productionCompany": "" + document.getElementById('productionCompanyInput').value,
         "length": "" + document.getElementById('lengthInput').value,
@@ -90,71 +105,24 @@ function saveAddRecordData() {
         "budget": "" + document.getElementById('budgetInput').value,
         "releaseDate": "" + document.getElementById('releaseDateInput').value
     }
-
-
-
-    console.log(data);
+    globalID++;
+    //console.log(data);
     movieData['movieData'].push(data);
     localStorage.setItem(curUser, JSON.stringify(movieData));
-    alert("Data Saved")
-    globalID = globalID + 1;
+    alert("Data Saved");
+    localStorage.setItem('globalID', globalID);
     document.getElementById('titleInput').value = "";
     document.getElementById('productionCompanyInput').value = "";
     document.getElementById('lengthInput').value = "";
     document.getElementById('genreInput').value = "";
     document.getElementById('budgetInput').value = "";
     document.getElementById('releaseDateInput').value = "";
-    goBack();
-}
-var tID = -1;
-var curID = -1;
-
-function deleteRecordHandler() {
-    console.log(this);
-}
-
-function findRecord(targetID) {
-    let size = movieData.movieData.length;
-
-    for (let i = 0; i < size; i++) {
-        if (movieData.movieData[i].id == targetID) return i;
-    }
-    return -1;
-}
-
-function deleteRecord(arrayLocation) {
-    if (arrayLocation == -1);
-    else {
-        movieData.movieData.splice(arrayLocation, 1);
-        alert("Deleted Entry");
-        localStorage(curUser, JSON.stringify(movieData));
-    }
-}
-
-function editViewRecordData() {
-    console.log(this);
-    movieData = JSON.parse(localStorage.getItem(curUser));
-    let i = findRecord(targetID);
-    let t = movieData.movieData[i];
-    curID = t.id;
-    document.getElementById('titleInput').value = "" + t.title;
-    document.getElementById('productionCompanyInput').value = "" + t.productionCompany;
-    document.getElementById('lengthInput').value = "" + t.length;
-    document.getElementById('genreInput').value = "" + t.genre;
-    document.getElementById('budgetInput').value = "" + t.budget;
-    document.getElementById('releaseDateInput').value = "" + t.releaseDate;
-}
-
-function saveEditViewRecordData(){
-    movieData = JSON.parse(localStorage.getItem(curUser));
-    let t = movieData.movieData[curID];
-    t.title = document.getElementById('titleInput').value;
-    t.productionCompany = document.getElementById('productionCompanyInput').value;
-    t.length = document.getElementById('lengthInput').value;
-    t.genre = document.getElementById('genreInput').value;
-    t.budget = document.getElementById('budgetInput').value;
-    t.releaseDate = document.getElementById('releaseDateInput').value;
-    
-    localStorage.setItem(curUser, JSON.stringify(movieData));
+    document.getElementById('titleInput').innerText = "";
+    document.getElementById('productionCompanyInput').innerText = "";
+    document.getElementById('lengthInput').innerText = "";
+    document.getElementById('genreInput').innerText = "";
+    document.getElementById('budgetInput').innerText = "";
+    document.getElementById('releaseDateInput').innerText = "";
+    buildTable();
     goBack();
 }

@@ -20,8 +20,8 @@ function validateLogin() {
     setTimeout(() => {
         document.getElementById('loginFormButton').classList.remove("fas", 'fa-spinner', 'fa-spin');
 
-        //validEmail = true;
-        //validPassword = true;
+        validEmail = true;
+        validPassword = true;
 
         //alert if wrong
         if (validEmail && validPassword) {
@@ -39,6 +39,7 @@ function validateLogin() {
             document.getElementById('bottomBar').style.display = 'block';
             document.getElementById('menuBtn').disabled = false;
             document.getElementById('dataTableDiv').style.display = 'block';
+            buildTable();
         }
         else if (validEmail && !validPassword) {
             //incorrect password
@@ -52,7 +53,7 @@ function validateLogin() {
             //both are wrong
             alert("email is not valid and password is too weak");
         }
-    }, 2000);
+    }, 1); //usually 2000
 }
 
 function logout() {

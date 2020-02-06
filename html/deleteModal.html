@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<body id="deleteModal">
-    <div class="modal-content">
-        <h2>Are you sure you want to delete this?</h2>
-        <span id="delete-modal-close-id" class="close-modal">Cancel</span>
-        <button id="deleteButton" onclick="deleteRecord(tID)"></button>
+
+<body>
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Are you sure you want to delete this?</h2>
+            <button id="delete-modal-close-id" class="close-modal" onclick="closeDeleteModal()" style="float: left;">No</button>
+            <button id="deleteButton" onclick="deleteRecordHandler()" style="float: right;">Yes</button>
+            <br></br>
+        </div>
     </div>
 </body>

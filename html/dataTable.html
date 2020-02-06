@@ -5,14 +5,20 @@
         <h1>Movie Data Table</h1>
         <div class="tableDiv">
             <table id='movieDataTable' style="margin-left: auto; margin-right: auto;">
+                <thead>
                 <tr>
+                    <!--<td>ID</td>-->
                     <td>Title</td>
                     <td>Production Company</td>
                     <td>Length</td>
                     <td>Genre</td>
                     <td>Budget</td>
                     <td>Release Date</td>
+                    <td>View/Edit</td>
+                    <td>Delete</td>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td>Toy Story</td>
                     <td>1</td>
@@ -20,6 +26,8 @@
                     <td>4</td>
                     <td>5</td>
                     <td>6</td>
+                    <td><button onclick="openModal()">View</button></td>
+                    <td><button>Delete</button></td>
                 </tr>
                 <tr>
                     <td>1</td>
@@ -37,6 +45,7 @@
                     <td>7</td>
                     <td>8 9</td>
                 </tr>
+                </tbody>
             </table>
         </div>
         <button id="addButton" class="floatingButton" onclick="displayRecord()">Add</button>
