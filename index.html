@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
 <head>
-    <title>React.js Demo</title>
+    <title>IA4</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Define Favicon -->
-    <link rel='shortcut icon' type='image/x-icon' href="https://dl.dropboxusercontent.com/s/79q9a1xy2148unf/SpeedScore3Icon.ico" />
     <!-- Import FontAwesome-->
-   <link rel="stylesheet"
-   href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-   integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-   crossorigin="anonymous">  
-   <!-- Import Bootstrap-->  
-   <link rel="stylesheet"
-   href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-   crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- Import Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="styles/style.css">
 
-</head>
 
+</head>
+<!-- shit breaks on smaller screen sizes -->
 <body>
-    <div id="root"></div>
+    <div class="container" style="min-height: 100%; min-height: 100vh; display: block; align-items: center;">
+        <div class="container col-md-6 col-md-offset-3">
+            <div class="jumbotron d-flex align-items-center">
+                <div style="width: 100%;">
+                <div id="clockDiv" class="container row" style="text-align: center;"></div>
+                <br>
+                <div id="tempDiv" class="container row" style="text-align: right;"></div>
+                </div> 
+            </div>
+        </div>
+    </div>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script src="components/clock.js" type="text/babel"></script>
+    <script src="components/temp.js" type="text/babel"></script>
 </body>
+
 </html>

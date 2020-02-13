@@ -1,0 +1,15 @@
+.centered {
+    width: 100%;
+    display: block;
+    align-items: center;
+}
+.fleft{
+    float: left;
+}
+
+.fright{
+    float: right;
+}
+.tets{
+    display: block;
+}
