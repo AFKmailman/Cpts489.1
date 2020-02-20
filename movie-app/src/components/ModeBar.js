@@ -10,7 +10,7 @@ class ModeBar extends React.Component {
 
     render() {
         return (
-            <div className={"modebar " + (this.props.mode === AppMode.LOGIN ? "invisible" : "visible")}>
+            <div className={"modebar" + (this.props.mode === AppMode.LOGIN ? " invisible" : " visible")}>
                 <a className={"modebar-btn" + (this.props.mode === AppMode.MOVIE ? " modebar-item-selected" : "")} onClick={this.props.menuOpen ? null : () => this.handleModeBtnClick(AppMode.MOVIE)}>
                     <span className="modebar-icon nonMenuItem fa fa-th-list"></span>
                     <span className="modebar-text">Movie</span>

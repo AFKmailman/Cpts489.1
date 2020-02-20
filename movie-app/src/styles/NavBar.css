@@ -225,10 +225,12 @@ body {
 .padded{
     display: block;
     width: 100%;
-    padding-top: 30px;
+    padding-top: 45px;
     text-align: center;
     padding-left: 0px;
 }
+
+
 
 /* INDEX.CSS -- The style definitions for the Speedgolf App. These are imported
   in index.css for the entire app. */
@@ -252,7 +254,7 @@ body {
   .navbar {
     overflow: hidden; /* Don't allow scrolling */
     display: block; /* Occupies its own horizontal space */
-    background-color: #13294E;
+    background-color: rgb(78, 19, 19);
     position: fixed; /* Doesn't move */
     top: 0;
     width: 100%; /* 100% of width of screen */
@@ -263,6 +265,7 @@ body {
   }
   
   .navbar-title {
+    text-align: center;
   color: white;
   font-size: 18px;
   }
@@ -283,7 +286,7 @@ body {
     z-index: 150; /* Force the menu to be at front */
     top: 48px; /* Position menu 48 px from top of screen; accomodates top navbar */
     left: 0; /* Position the menu on the left hand side */
-    background-color: #13294E; /* Background color is dark blue */
+    background-color: rgb(78, 19, 19);
     overflow-x: hidden; /* Don't allow horizontal scroll */
     transition: 0.5s; /* Animation transition time is 0.5 sec */
     padding-top: 2px; /* Place menu content 2 px from top */
@@ -303,12 +306,12 @@ body {
   /* Required ordering of link style definitions: visited, hover, active. If out of this order, they won't work!! */
   
   .sidemenu a:visited {
-  background-color:  #13294E !important;
+    background-color: rgb(78, 19, 19);
   color: white !important;
   }
   
   .sidemenu a:active {
-  background-color:  #13294E !important;
+    background-color: rgb(78, 19, 19);
   color: white !important;
   }
   
@@ -346,12 +349,13 @@ body {
   /* side menu item styling */
   .sidemenu-btn {
   background-color: transparent;
-  border-color: #13294E;
+  border-color: rgb(78, 19, 19);
+
   text-align: center;
   }
   
   .sidemenu-btn-icon {
-  color: white;
+  color: rgb(78, 19, 19);
   font-size: 30px;
   cursor: pointer;
   text-align: center;
@@ -368,7 +372,7 @@ body {
   
   /* The SpeedScore dark blue color theme  */       
   .btn-color-theme {
-        background-color: #13294E;
+    background-color: rgb(78, 19, 19);
         color: white;
     }
     
@@ -405,7 +409,7 @@ body {
   
   /* Styling for mode bar at the bottom of the page */
   .modebar {
-    background-color: #13294E;
+    background-color: rgb(78, 19, 19);
     overflow: hidden;
     position: fixed;
     bottom: 0;
@@ -417,7 +421,7 @@ body {
   .modebar a {
     display: block;
     float: left;
-    width: 32%;
+    width: 50%;
     color: white;
     text-align: center;
     padding: 2px 2px;
@@ -469,7 +473,7 @@ body {
     height:60px;
     bottom:60px;
     right:40px;
-    background-color:#13294E;
+    background-color: rgb(78, 19, 19);
     color:white;
     border-radius:50px;
     text-align:center;
@@ -538,3 +542,12 @@ body {
   .form-center {
     text-align: center;
   }
+
+  .userIdText {
+      color: white;
+  }
+
+.movieDataTableClass {
+    margin-left: auto; 
+    margin-right: auto;
+}

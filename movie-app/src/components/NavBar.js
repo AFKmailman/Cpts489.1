@@ -24,12 +24,12 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div id="navBar" className="navbar">
-                <span className="navbarItems">
-                    <button id="menuBtn" onClick={this.handleMenuBtnClick}>
-                        <span id="menuBtnIcon" className={'menuBtnIcon' + this.getMenuBtnIcon()}></span>
+            <div id="navbar" className="navbar">
+                <span className="navbar-items">
+                    <button id="sidemenu-btn" onClick={this.handleMenuBtnClick}>
+                        <span id="sidemenu-btn-icon" className={'sidemenu-btn-icon ' + this.getMenuBtnIcon()}></span>
                     </button>
-                    <span id="topBarTitle">&nbsp;&nbsp;&nbsp;{this.props.title}&nbsp;&nbsp;&nbsp;</span>
+                    <span id="topBarTitle" className="navbar-title">&nbsp;&nbsp;&nbsp;{this.props.title}&nbsp;&nbsp;&nbsp;</span>
                 </span>
             </div>
         )

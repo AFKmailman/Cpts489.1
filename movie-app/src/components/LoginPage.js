@@ -63,7 +63,7 @@ class LoginPage extends React.Component {
                                 className="form-control login-text"
                                 type="password"
                                 placeholder="Enter Password"
-                                pattern="^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$"
+                                pattern="([A-Za-z0-9!@#$%^*]){4,}"
                                 required={true}
                             />
                         </label>

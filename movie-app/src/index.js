@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './styles/index.css';
 import './styles/modal.css';
+import './styles/App.css';
+import './styles/NavBar.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 

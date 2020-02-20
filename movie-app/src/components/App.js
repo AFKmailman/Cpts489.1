@@ -45,7 +45,7 @@ class App extends React.Component {
     this.setState({ menuOpen: false });
   }
 
-  toggleMenu = () => {
+  toggleMenuOpen = () => {
     this.setState(prevState => ({ menuOpen: !prevState.menuOpen }));
   }
 
