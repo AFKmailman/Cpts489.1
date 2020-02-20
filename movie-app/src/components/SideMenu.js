@@ -27,8 +27,8 @@ class SideMenu extends React.Component {
                     <span id="userID" className="userIdText">{this.props.userId}</span>
                 </div>
                 {this.renderModeMenuItems()}
-                <a id='about' className="aboutMenuItem menuItem" onClick={this.props.showAbout}><span className="fas fa-angle-right">&nbsp;About&nbsp;</span></a>
-                <a id="logout" className="logoutMenuItem menuItem" onClick={() => {this.props.changeMode(AppMode.LOGIN)}}><span className="fas fa-angle-right">&nbsp;Logout&nbsp;</span></a>
+                <a id='about' className="aboutMenuItem menuItem" onClick={this.props.showAbout}><span className="fa fa-angle-right">&nbsp;About&nbsp;</span></a>
+                <a id="logout" className="logoutMenuItem menuItem" onClick={() => {this.props.changeMode(AppMode.LOGIN)}}><span className="fa fa-angle-right">&nbsp;Logout&nbsp;</span></a>
             </div>
         );
     }
