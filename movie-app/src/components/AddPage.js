@@ -26,29 +26,44 @@ class AddPage extends React.Component {
     saveData = (data) => {
         console.log(data);
         console.log(this.props.userId);
-        localStorage.setItem(this.props.userId, JSON.stringify(data));
+        let tInfo = JSON.parse(localStorage.getItem(this.props.userId));
+        console.log(tInfo);
+        if (tInfo == null) {
+            let ttInfo = {
+                "movieData":[]
+            }
+            ttInfo["movieData"].push(data)
+
+            localStorage.setItem(this.props.userId, JSON.stringify(ttInfo));
+        }
+        else {
+            tInfo.movieData.push(data);
+            localStorage.setItem(this.props.userId, JSON.stringify(tInfo));
+        }
         this.props.changeMode(AppMode.MOVIE);
     }
 
     handleChange = (event) => {
         const name = event.target.name;
-        this.setState({[name]: event.target.value});
+        this.setState({ [name]: event.target.value });
     }
 
     handleSubmit = (event) => {
         //start spinner
-        this.setState({faIcon: "fa fa-spin fa-spinner",
-                       btnLabel: (this.props.mode === AppMode.ROUNDS_LOGROUND ? 
-                                    "Saving..." : "Updating...")});
+        this.setState({
+            faIcon: "fa fa-spin fa-spinner",
+            btnLabel: (this.props.mode === AppMode.MOVIE_LOG ?
+                "Saving..." : "Updating...")
+        });
         //Prepare current round data to be saved
         let movieData = this.state;
         delete movieData.faIcon;
         delete movieData.btnLabel;
         //call saveRound on 1 second delay to show spinning icon
-        setTimeout(this.saveData,1000,movieData); 
-        event.preventDefault(); 
-      }
-    
+        setTimeout(this.saveData, 1000, movieData);
+        event.preventDefault();
+    }
+
 
     render() {
         return (
@@ -57,36 +72,36 @@ class AddPage extends React.Component {
                     <center>
                         <label>
                             Title:
-                            <input name="title" className="form-control form-center" type="text" value={this.props.title} onChange={this.handleChange}/>
+                            <input name="title" className="form-control form-center" type="text" value={this.props.title} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Production Company:
-                            <input name="productionCompany" className="form-control form-center" type="text" value={this.props.productionCompany} onChange={this.handleChange}/>
+                            <input name="productionCompany" className="form-control form-center" type="text" value={this.props.productionCompany} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Length:
-                            <input name="length" className="form-control form-center" type="number" value={this.props.length} onChange={this.handleChange}/>
+                            <input name="length" className="form-control form-center" type="number" value={this.props.length} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Genre:
-                            <input name="genre" className="form-control form-center" type="text" value={this.props.genre} onChange={this.handleChange}/>
+                            <input name="genre" className="form-control form-center" type="text" value={this.props.genre} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Budget:
-                            <input name="budget" className="form-control form-center" type="number" value={this.props.budget} onChange={this.handleChange}/>
+                            <input name="budget" className="form-control form-center" type="number" value={this.props.budget} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Release Date:
-                            <input name="releaseDate" className="form-control form-center" type="text" value={this.props.releaseDate} onChange={this.handleChange}/>
+                            <input name="releaseDate" className="form-control form-center" type="text" value={this.props.releaseDate} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <p></p>
-        <button type="submit" className="btn btn-primary btn-color-theme"><span className={this.state.faIcon}>&nbsp;{this.state.btnLabel}</span></button>
+                        <button type="submit" className="btn btn-primary btn-color-theme"><span className={this.state.faIcon}>&nbsp;{this.state.btnLabel}</span></button>
                     </center>
                 </form>
             </div>
