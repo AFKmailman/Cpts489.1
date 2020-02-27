@@ -24,6 +24,15 @@ class LoginPage extends React.Component {
             loginBtnLabel: "Log In"
         });
         this.props.setUserId(this.emailInputRef.current.value);
+        let tInfo = localStorage.getItem(this.props.userId);
+        if (tInfo == null) {
+            let ttInfo = {
+                "movieData":[]
+            }
+            //ttInfo["movieData"].push({"title":"","productionCompany":"","length":"","genre":"","budget":"","releaseDate":""})
+
+            localStorage.setItem(this.props.userId, JSON.stringify(ttInfo));
+        }
         this.props.changeMode(AppMode.MOVIE);
     }
 

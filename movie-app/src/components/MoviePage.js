@@ -29,6 +29,19 @@ class MoviePage extends React.Component {
             //let temp = this.state.rows.movieData[0].title;
             //console.log("temp:"+temp);
             let inH = "<tr><td>No</td><td>Info</td><td>To</td><td>Be</td><td>Displayed</td><td>:(</td></tr>";
+            let tempp = {
+                "movieData": [
+                    {
+                        "title": "no",
+                        "productionCompany": "Information",
+                        "length": "To",
+                        "genre": "Display,",
+                        "budget": "Sorry",
+                        "releaseDate": ":("
+                    }
+                ]
+            }
+            this.setState({rows: tempp });
             // let t = 0;
             // for (let i = 0; i < tInfo.movieData.length; i++) {
             //     //t = tInfo[i].id;
@@ -56,7 +69,7 @@ class MoviePage extends React.Component {
         let tInfo = JSON.parse(localStorage.getItem(this.props.userId));
         tInfo.movieData.splice(t, 1);
         localStorage.setItem(this.props.userId, JSON.stringify(tInfo));
-        this.props.changeMode(AppMode.MOVIER);
+        this.props.changeMode(AppMode.MOVIE);
         this.forceUpdate();
     }
 
@@ -71,7 +84,7 @@ class MoviePage extends React.Component {
                 <div className="padded">
                     <h1>Movie Data Table</h1>
                     <div className="tableDiv">
-                        <h3>When you click delete go to the other mode and swap back and it should be gone. could not get it to update right</h3>
+                        <h3>could not get it to print no data to show. should be fine</h3>
                         <table id='movieDataTable' className="movieDataTableClass">
                             <thead>
                                 <tr>
