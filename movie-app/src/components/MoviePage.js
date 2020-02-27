@@ -2,39 +2,67 @@ import React from 'react';
 import $ from 'jquery';
 import AppMode from '../AppMode.js';
 import FloatingButton from './FloatingButton.js';
+import DeleteButton from './DeleteButton';
+import EditButton from './EditButton';
 class MoviePage extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            rows: JSON.parse(localStorage.getItem(this.props.userId))
+        }
+    }
+
+    setRows = (t) => {
+        this.setState(
+            {
+                rows: t
+            }
+        )
     }
 
     componentDidMount() {
-        //console.log($('#movieDataTable'));
-        //console.log(myTable);
-
-        //build table
         console.log(this.props.userId);
         let tInfo = localStorage.getItem(this.props.userId);
-        if (tInfo != null) {
-            tInfo = JSON.parse(tInfo);
-            console.log(tInfo);
-            let inH = "";
-            let t = 0;
-            for (let i = 0; i < tInfo.movieData.length; i++) {
-                //t = tInfo[i].id;
-                inH += "<tr>\n";
-                //inH += "<td>" + tInfo[i].id + "</td>\n";
-                inH += "<td>" + tInfo.movieData[i].title + "</td>\n";
-                inH += "<td>" + tInfo.movieData[i].productionCompany + "</td>\n";
-                inH += "<td>" + tInfo.movieData[i].length + "</td>\n";
-                inH += "<td>" + tInfo.movieData[i].genre + "</td>\n";
-                inH += "<td>" + tInfo.movieData[i].budget + "</td>\n";
-                inH += "<td>" + tInfo.movieData[i].releaseDate + "</td>\n";
-                inH += "<td>" + "<button onclick='editViewRecordData(" + t.toString() + ")'>View/Edit</button>" + "</td>\n";
-                inH += "<td>" + "<DeleteButton handleClick={() => this.props.changeMode(AppMode.MOVIE)} userId={this.props.userId} currentIndex="+i.toString()+"/>\n";
-                inH += "</tr>";
-            }
+        if (tInfo == null || tInfo.length == 0) {
+            //tInfo = JSON.parse(tInfo);
+            //console.log(tInfo);
+            //let temp = this.state.rows.movieData[0].title;
+            //console.log("temp:"+temp);
+            let inH = "<tr><td>No</td><td>Info</td><td>To</td><td>Be</td><td>Displayed</td><td>:(</td></tr>";
+            // let t = 0;
+            // for (let i = 0; i < tInfo.movieData.length; i++) {
+            //     //t = tInfo[i].id;
+            //     inH += "<tr>\n";
+            //     //inH += "<td>" + tInfo[i].id + "</td>\n";
+            //     inH += "<td>" + tInfo.movieData[i].title + "</td>\n";
+            //     inH += "<td>" + tInfo.movieData[i].productionCompany + "</td>\n";
+            //     inH += "<td>" + tInfo.movieData[i].length + "</td>\n";
+            //     inH += "<td>" + tInfo.movieData[i].genre + "</td>\n";
+            //     inH += "<td>" + tInfo.movieData[i].budget + "</td>\n";
+            //     inH += "<td>" + tInfo.movieData[i].releaseDate + "</td>\n";
+            //     inH += "<td>" + "<button onclick='editViewRecordData(" + t.toString() + ")'>View/Edit</button>" + "</td>\n";
+            //     inH += "<td>" + "<button onclick='deleteRecird(" + t.toString() + ")'>Delete</button>" + "</td>\n";
+            //     inH += "</tr>";
+            // }
             $('#movieDataTable')[0].tBodies[0].innerHTML = inH;
         }
+    }
+
+    testFunction(t) {
+        console.log("t:"+t);
+    }
+
+    deleteItem(t){
+        let tInfo = JSON.parse(localStorage.getItem(this.props.userId));
+        tInfo.movieData.splice(t, 1);
+        localStorage.setItem(this.props.userId, JSON.stringify(tInfo));
+        this.props.changeMode(AppMode.MOVIER);
+        this.forceUpdate();
+    }
+
+    goToEdit(t) {
+        localStorage.setItem(this.props.userId+"_index", t);
+        this.props.changeMode(AppMode.MOVIE_EDIT)
     }
 
     render() {
@@ -43,6 +71,7 @@ class MoviePage extends React.Component {
                 <div className="padded">
                     <h1>Movie Data Table</h1>
                     <div className="tableDiv">
+                        <h3>When you click delete go to the other mode and swap back and it should be gone. could not get it to update right</h3>
                         <table id='movieDataTable' className="movieDataTableClass">
                             <thead>
                                 <tr>
@@ -57,26 +86,30 @@ class MoviePage extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-
-                                {/*<tr>
-                                    <td>Toy Story</td>
-                                    <td>1</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td><button onclick="openModal()">View</button></td>
-                                    <td><button>Delete</button></td>
-                                </tr>*/}
-                                <tr>
-                                    <td>No</td>
-                                    <td>Info</td>
-                                    <td>To</td>
-                                    <td>Be</td>
-                                    <td>Displayed</td>
-                                    <td>:(</td>
-
-                                </tr>
+                                { this.state.rows.movieData.map((r, index) => (
+                                    <tr>
+                                        <td>
+                                            {r.title}
+                                        </td>
+                                        <td>
+                                            {r.productionCompany}
+                                        </td>
+                                        <td>
+                                            {r.length}
+                                        </td>
+                                        <td>
+                                            {r.genre}
+                                        </td>
+                                        <td>
+                                            {r.releaseDate}
+                                        </td>
+                                        <td>
+                                            <EditButton handleClick={() => this.goToEdit(index)} data={this.state.rows} iIndex={index}/>
+                                        </td><td>
+                                            <DeleteButton handleClick={() => this.deleteItem(index)} iIndex={index}/>
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>

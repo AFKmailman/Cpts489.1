@@ -1,5 +1,6 @@
 import React from 'react';
 import AppMode from '../AppMode.js';
+import App from './App.js';
 
 class AddPage extends React.Component {
     constructor(props) {
@@ -17,9 +18,20 @@ class AddPage extends React.Component {
             }
         }
         else {
-            this.state = this.props.data;
-            this.state.faIcon = "fa fa-edit";
-            this.state.btnLabel = "Update Info"
+            console.log(this.props);
+            let i = localStorage.getItem(this.props.userId+"_index");
+            let tInfo = JSON.parse(localStorage.getItem(this.props.userId));
+            this.state = {
+                title: tInfo.movieData[i].title,
+                productionCompany: tInfo.movieData[i].productionCompany,
+                length: tInfo.movieData[i].length,
+                genre: tInfo.movieData[i].genre,
+                budget: tInfo.movieData[i].budget,
+                releaseDate: tInfo.movieData[i].releaseDate,
+                faIcon: "fa fa-edit",
+                btnLabel: "Update Info"
+            } 
+            
         }
     }
 
@@ -27,6 +39,10 @@ class AddPage extends React.Component {
         console.log(data);
         console.log(this.props.userId);
         let tInfo = JSON.parse(localStorage.getItem(this.props.userId));
+        if(this.props.mode === AppMode.MOVIE_EDIT){
+            let i = localStorage.getItem(this.props.userId+"_index");
+            tInfo.movieData.splice(i, 1);
+        }
         console.log(tInfo);
         if (tInfo == null) {
             let ttInfo = {
@@ -72,32 +88,32 @@ class AddPage extends React.Component {
                     <center>
                         <label>
                             Title:
-                            <input name="title" className="form-control form-center" type="text" value={this.props.title} onChange={this.handleChange} />
+                            <input name="title" className="form-control form-center" type="text" value={this.state.title} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Production Company:
-                            <input name="productionCompany" className="form-control form-center" type="text" value={this.props.productionCompany} onChange={this.handleChange} />
+                            <input name="productionCompany" className="form-control form-center" type="text" value={this.state.productionCompany} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Length:
-                            <input name="length" className="form-control form-center" type="number" value={this.props.length} onChange={this.handleChange} />
+                            <input name="length" className="form-control form-center" type="number" value={this.state.length} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Genre:
-                            <input name="genre" className="form-control form-center" type="text" value={this.props.genre} onChange={this.handleChange} />
+                            <input name="genre" className="form-control form-center" type="text" value={this.state.genre} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Budget:
-                            <input name="budget" className="form-control form-center" type="number" value={this.props.budget} onChange={this.handleChange} />
+                            <input name="budget" className="form-control form-center" type="number" value={this.state.budget} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <label>
                             Release Date:
-                            <input name="releaseDate" className="form-control form-center" type="text" value={this.props.releaseDate} onChange={this.handleChange} />
+                            <input name="releaseDate" className="form-control form-center" type="text" value={this.state.releaseDate} onChange={this.handleChange} />
                         </label>
                         <p></p>
                         <p></p>

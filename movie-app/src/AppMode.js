@@ -3,7 +3,8 @@ const AppMode = {
     MOVIE: "MovieMode",
     MOVIE_EDIT: "MovieMode-EditMovie",
     MOVIE_LOG: "MovieMode-LogMovie",
-    MOVIE_INFO: "MovieInfoMode"
+    MOVIE_INFO: "MovieInfoMode",
+    MOVIER: "MovieRefresh"
 };
 
 Object.freeze(AppMode);

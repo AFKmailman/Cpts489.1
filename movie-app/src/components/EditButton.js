@@ -4,7 +4,7 @@ class EditButton extends React.Component {
     render(){
         return (
             <div>
-                <btn className="editbtn" onClick={this.props.deleteItem}>Delete</btn>
+                <button className="editbtn" onClick={this.props.handleClick}>Edit</button>
             </div>
         );
     }

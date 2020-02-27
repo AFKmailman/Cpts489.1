@@ -7,6 +7,7 @@ import InfoPage from './InfoPage.js';
 import SideMenu from './SideMenu.js';
 import ModeBar from './ModeBar.js';
 import AppMode from '../AppMode.js';
+import MovieRefresh from './MovieRefresh.js';
 
 const modeTitle = {};
 modeTitle[AppMode.LOGIN] = "Welcome";
@@ -14,6 +15,7 @@ modeTitle[AppMode.MOVIE] = "Movie Table";
 modeTitle[AppMode.MOVIE_EDIT] = "Edit Movie";
 modeTitle[AppMode.MOVIE_LOG] = "Add Movie";
 modeTitle[AppMode.MOVIE_INFO] = "Addition Info";
+modeTitle[AppMode.MOVIE] = "REFRESHING"
 
 const modeToPage = {};
 modeToPage[AppMode.LOGIN] = LoginPage;
@@ -21,6 +23,7 @@ modeToPage[AppMode.MOVIE] = MoviePage;
 modeToPage[AppMode.MOVIE_EDIT] = AddPage;
 modeToPage[AppMode.MOVIE_LOG] = AddPage;
 modeToPage[AppMode.MOVIE_INFO] = InfoPage;
+modeToPage[AppMode.MOVIER] = MovieRefresh;
 
 class App extends React.Component {
   constructor(props) {
