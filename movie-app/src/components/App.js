@@ -15,7 +15,7 @@ modeTitle[AppMode.MOVIE] = "Movie Table";
 modeTitle[AppMode.MOVIE_EDIT] = "Edit Movie";
 modeTitle[AppMode.MOVIE_LOG] = "Add Movie";
 modeTitle[AppMode.MOVIE_INFO] = "Addition Info";
-modeTitle[AppMode.MOVIE] = "REFRESHING"
+modeTitle[AppMode.MOVIER] = "REFRESHING"
 
 const modeToPage = {};
 modeToPage[AppMode.LOGIN] = LoginPage;

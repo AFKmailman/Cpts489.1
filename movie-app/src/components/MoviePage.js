@@ -69,7 +69,7 @@ class MoviePage extends React.Component {
         let tInfo = JSON.parse(localStorage.getItem(this.props.userId));
         tInfo.movieData.splice(t, 1);
         localStorage.setItem(this.props.userId, JSON.stringify(tInfo));
-        this.props.changeMode(AppMode.MOVIE);
+        this.props.changeMode(AppMode.MOVIER);
         this.forceUpdate();
     }
 
