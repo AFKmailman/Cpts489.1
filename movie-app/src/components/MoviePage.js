@@ -23,7 +23,8 @@ class MoviePage extends React.Component {
     componentDidMount() {
         console.log(this.props.userId);
         let tInfo = localStorage.getItem(this.props.userId);
-        if (tInfo == null || tInfo.length == 0) {
+        console.log(tInfo);
+        if (tInfo === null || tInfo.length == 0) {
             //tInfo = JSON.parse(tInfo);
             //console.log(tInfo);
             //let temp = this.state.rows.movieData[0].title;
@@ -59,6 +60,9 @@ class MoviePage extends React.Component {
             // }
             $('#movieDataTable')[0].tBodies[0].innerHTML = inH;
         }
+        // else {
+        //     this.setRows(tInfo);
+        // }
     }
 
     testFunction(t) {
