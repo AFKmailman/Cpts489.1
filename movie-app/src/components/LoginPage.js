@@ -26,12 +26,12 @@ class LoginPage extends React.Component {
         this.props.setUserId(this.emailInputRef.current.value);
         let tInfo = localStorage.getItem(this.props.userId);
         if (tInfo === null) {
-            let ttInfo = {
-                "movieData":[]
-            }
-            ttInfo["movieData"].push({"title":"","productionCompany":"","length":"","genre":"","budget":"","releaseDate":""})
+            // let ttInfo = {
+            //     "movieData":[]
+            // }
+            //ttInfo["movieData"].push({"title":"","productionCompany":"","length":"","genre":"","budget":"","releaseDate":""})
 
-            localStorage.setItem(this.props.userId, JSON.stringify(ttInfo));
+            localStorage.setItem(this.props.userId, "{\"movieData\":[]}");
         }
         this.props.changeMode(AppMode.MOVIE);
     }
